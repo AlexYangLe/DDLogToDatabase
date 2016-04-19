@@ -16,7 +16,15 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+
+    [DDLog addLogger:[DDTTYLogger sharedInstance]];
+    
+    DDDBLogger *logger = [[DDDBLogger alloc] init];
+    [logger setLogFormatter:[DDDBLogFormatter new]];
+    [DDLog addLogger:logger];
+    
+    NSLog(@"i come back !");
+
     return YES;
 }
 
